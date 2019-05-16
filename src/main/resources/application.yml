@@ -1,0 +1,6 @@
+gremlin:
+  endpoint: 11.208.32.162
+  port: 8182
+  sslEnabled: false
+  telemetryAllowed: true
+  username: /dbs/Remote/colls/pricing

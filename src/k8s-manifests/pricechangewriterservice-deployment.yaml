@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pricechangewriterservice
+spec:
+  selector:
+    matchLabels:
+      app: pricechangewriterservice
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: pricechangewriterservice
+    spec:
+      containers:
+        - image: "%%APP_DOCKER_IMAGE%%"
+          imagePullPolicy: Always
+          name: pricechangewriterservice
+          ports:
+            - containerPort: 8080
+          env:
+            - name: CONFIG_FILE
+              value: /config
+            - name: PROFILE
+              value: "%%PROFILE%%"
+            - name: SPRING_DATA_CASSANDRA_CONTACT-POINTS
+              value: 172.21.37.211
+            - name: GOOGLE_APPLICATION_CREDENTIALS
+              value: /secrets/credentials.json
+            - name: SPRING_DATA_CASSANDRA_USERNAME
+              value: cassandra
+            - name: SPRING_DATA_CASSANDRA_PASSWORD
+              value: /secrets/password
+          livenessProbe:
+            httpGet:
+              path: /actuator/health
+              port: 8080
+            initialDelaySeconds: 90
+            periodSeconds: 120
+          readinessProbe:
+            httpGet:
+              path: /actuator/health
+              port: 8080
+            initialDelaySeconds: 90

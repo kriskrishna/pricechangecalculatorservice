@@ -1,0 +1,25 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: pricechangewriterservice
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+spec:
+  tls:
+  - hosts:
+    - dev-pricechangecalculator.devops.fds.com
+    secretName: nginxsecret
+  rules:
+  - host: dev-pricechangecalculator.devops.fds.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: pricechangewriterservice
+          servicePort: 80
+
+        #local DNS kube-dns
+        #gloabal DNS
+        #rsync from kube-dna -> broadcasting to other global dns
+        #can I have a local entry - that cannot be resolved locally
+        # endpoint to be resolved locally

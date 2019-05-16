@@ -1,0 +1,59 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pricechangewriterservice-gke
+  labels:
+      app: pricechangewriterservice-gke
+spec:
+  selector:
+    matchLabels:
+      app: pricechangewriterservice-gke
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: pricechangewriterservice-gke
+    spec:
+      containers:
+        - image: kriskrishna/pricechangewriterservice:latest
+          imagePullPolicy: Always
+          name: pricechangecalculator-doservice
+          ports:
+            - containerPort: 8080
+          env:
+           - name: DSE_DATABASE
+             value: external-cassandra-service
+           - name: SPRING_DATA_CASSANDRA_CONTACT-POINTS
+             value: 172.21.37.211
+           - name: SPRING_DATA_CASSANDRA_USERNAME
+             value: cassandra
+           - name: SPRING_DATA_CASSANDRA_PASSWORD
+             value: cassandra
+          #livenessProbe:
+          #  httpGet:
+          #    path: /api/platform/v1/actuator/health
+          #    port: 8080
+          #  initialDelaySeconds: 90
+          #  periodSeconds: 120
+          #readinessProbe:
+          #  httpGet:
+          #    path: /api/platform/v1/actuator/health
+          #    port: 8080
+          #  initialDelaySeconds: 90
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: pricechangewriterservice-gke
+  labels:
+      app: pricechangewriterservice-gke
+spec:
+  #externalTrafficPolicy: Local
+  #type: NodePort
+  ports:
+   - name: http
+     port: 80
+     protocol: TCP
+     targetPort: 8080
+  selector:
+    app: pricechangewriterservice-gke

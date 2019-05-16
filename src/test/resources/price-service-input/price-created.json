@@ -1,0 +1,76 @@
+{
+  "header": {
+    "actionCode": "I",
+    "messageSequenceNumber":"1234",
+    "priceChangeNumber": "3935675",
+    "referenceNumber": "0",
+    "divisionNumber": "12",
+    "departmentNumber": "716",
+    "typeID": "5",
+    "typeDesc": "MARKDOWN CANCEL",
+    "rsnID": "10",
+    "pricingEventID": "31906",
+    "priceOptID": "1",
+    "priceOptDesc": "OWNED AND TICKETED PRICE CHANGE",
+    "startDate": "04/09/2019",
+    "infoOnlyFlag": "N",
+    "sysGenFlag": "N",
+    "pcSourceID": "201",
+    "pcSourceDesc": "PRICE APP PC",
+    "createUser": "Y781196",
+    "createTS": "2019-04-02-13.42.08.086091",
+    "lastUpdateUser": "M771663",
+    "lastUpdateTS": "2019-04-02-13.54.28.336764",
+    "approvalAssociateID": "M771663",
+    "approvalAssociateTS": "2019-04-02-13.54.28.329832",
+    "locations": {
+      "location": {
+        "zone": "2"
+      }
+    },
+    "priceChangeStatusCodes": {
+      "priceChangeStatusID": 100,
+      "priceChangeStatusDesc": "FINAL APPROVED",
+      "priceChangeStatusCode_1": "1",
+      "priceChangeStatusCode_2": 1,
+      "priceChangeStatusCode_3": 1,
+      "priceChangeStatusCode_4": 2
+    },
+    "merchNotes": "INCREASE OWN/TICKET"
+  },
+  "priceDetails": [
+    {
+      "lineNumber": "1",
+      "vendorNumber": "3",
+      "nrfColorNumber": "all",
+      "itemColorNumber": "all",
+      "classNumber": "22",
+      "markStyleNumber": "70183",
+      "nrfSizeNumber": "all",
+      "itemSizeNumber": "all",
+      "globalID": "1",
+      "globalDescription": "EXCLUDED DEPT/CLASS GLOBAL",
+      "markdownStatus": "10",
+      "markdownStatusDesc": "REGULAR",
+      "edvFlag": "N",
+      "currentFirstOwn": 89.5,
+      "currentFirstTicket": 89.5,
+      "newFirstOwn": 89.5,
+      "newFirstTicket": 89.5,
+      "currentOwn": 20.16,
+      "currentTicket": 20.16,
+      "newOwn": 89.5,
+      "newTicket": 89.5,
+      "bookingDetail": {
+        "actualCount": "0",
+        "estimateAmount": "0"
+      },
+      "skuupcNumber": "732994251938",
+      "createUser": "Y781196",
+      "createTS": "2019-04-02-13.42.08.087193",
+      "lastUpdateUser": "MISSING",
+      "lastUpdateTS": "2019-04-02-13.42.08.087193"
+    }
+  ]
+}
+
